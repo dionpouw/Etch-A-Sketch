@@ -14,3 +14,22 @@ function createGrid(grid) {
 }
 
 createGrid(16);
+
+const button = document.querySelector("#btn");
+
+button.addEventListener("click", () => {
+    let newGrid = prompt("How many grid?");
+    if (newGrid < 100) {
+        removeGrid();
+        createGrid(newGrid);
+    } else {
+        alert("Cannot be more than 100");
+    }
+})
+
+function removeGrid() {
+    const parent = document.getElementById("container");
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
